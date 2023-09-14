@@ -1,9 +1,0 @@
-#include <iostream>
-using namespace std;
-int main() {
-	int a, b, c = 9;
-	cin >> a;
-	b = c - a;
-	cout << a << c << b;
-	return 0;
-}
