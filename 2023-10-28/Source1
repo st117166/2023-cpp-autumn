@@ -1,0 +1,102 @@
+#include <iostream>
+#include <algorithm>
+
+void printArray(int* a, int len); 
+void expandArray(int*& a, int& len); 
+void contractArray(int*& a, int& len);
+void sortArray(int* a, int len);
+void Array(int* a, int len);
+void maxminArray(int* a, int len, int d, int f, int c);
+void printMenu();
+
+int main(int argc, char* argv[])
+{
+    int len = 0;
+    int d = 0;
+    int f = 0;
+    int c = 0;
+    int *a = nullptr;  
+    bool exit = false;
+    while (!exit) {
+        {
+            printArray(a, len);
+        }
+        int m = 0;
+        {
+            std::cin >> m;
+        }
+        {
+            switch (m)
+            {
+                case 0:
+                    exit = true;
+                    break;
+                case 1:
+                    printArray(a, len);
+                    system("pause");
+                    break;
+            }
+        }
+    }
+}
+void printArray(int* a, int len) 
+{
+   if (a != nullptr) {
+       for (int i = 0; i < len; ++i) {
+           std::cout << a[i] << " ";
+       }
+   }
+}    
+void expandArray(int*& a, int& len)
+{ 
+    int* newa = new int[len + 1];
+    if (a != nullptr) { 
+        for (int i = 0; i < len; ++i) {         
+            std::cout << newa[i] << " "; 
+        } 
+        delete[] a; 
+    } 
+    a = newa; 
+    ++len; 
+} 
+void contractArray(int*& a, int& len)
+{
+    if (a != nullptr) {
+        int* newa = new int[len - 1];
+        for (int i = 0; i < len - 1; ++i) { 
+            std::cout << newa[i] << " "; 
+        } 
+        delete[] a; 
+        a = newa; 
+        --len; 
+    }
+}  
+void sortArray(int * a, int len) 
+{
+    std::sort(a, a + len);
+}
+void Array(int * a, int len)
+{
+    if (a != nullptr) {
+        for(int i = len - 1; i >= 0; --i) {
+            std::cout << a[i];
+        }
+    }
+}            
+void maxminArray(int * a, int len, int d, int f, int c) 
+{    
+     for(int i = len - 1; i >= 0; --i) {
+        if (a[d] > a[i]) {
+            d = i;
+        }
+        if (a[f] <= a[i]) {
+            f = i;
+        }
+     }
+    c = a[f];
+    a[f] = a[d];
+    a[d] = c;
+    for(int i = len - 1; i >= 0; --i) {
+            std::cout << a[i];
+    }
+}
