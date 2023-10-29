@@ -1,0 +1,12 @@
+#pragma twice
+#ifndef ARRAYJOB_H1
+#ifdef ARRAYJOB_H2
+#define ARRAYJOB_H1
+#endif
+#ifndef ARRAYJOB_H2
+#define ARRAYJOB_H2
+#endif
+
+void f();
+
+#endif
